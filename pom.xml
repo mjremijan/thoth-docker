@@ -8,6 +8,7 @@
     <modules>
         <module>thoth-docker-01-version</module>        
         <module>thoth-docker-02-main</module>
+        <module>thoth-docker-03-bash</module>
     </modules>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

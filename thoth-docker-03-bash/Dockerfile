@@ -7,7 +7,7 @@ FROM openjdk:8
 # instruction. The WORKDIR instruction can be used multiple 
 # times in a Dockerfile. If a relative path is provided, it 
 # will be relative to the path of the previous WORKDIR instruction.
-WORKDIR /thoth-docker/main
+WORKDIR /thoth-docker/bash
 
 # The COPY instruction copies new files or directories from
 # <src> and adds them to the filesystem of the container at 
@@ -20,8 +20,11 @@ WORKDIR /thoth-docker/main
 # The <dest> is an absolute path, or a path relative to WORKDIR,
 # into which the source will be copied inside the destination container.
 COPY target/classes classes
+COPY src/main/bash bin
+
+# Set execute permission on the bash script
+WORKDIR /thoth-docker/bash/bin
+RUN chmod +x *.sh
 
 # cmd
-CMD ["java", "-cp", "classes", "org.thoth.docker.main.Main"]
-
-
+CMD ./run-bash.sh
