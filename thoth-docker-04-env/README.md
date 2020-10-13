@@ -1,4 +1,4 @@
-# thoth-docker-04-emv
+# thoth-docker-04-env
 
 This is a test of Docker `ENV`.
 
